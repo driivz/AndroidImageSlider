@@ -648,6 +648,7 @@ public class SliderLayout extends RelativeLayout{
             //a small bug, but fixed by this trick.
             //bug: when remove adapter's all the sliders.some caching slider still alive.
             mViewPager.setCurrentItem(mViewPager.getCurrentItem() +  count,false);
+            mViewPager.setCurrentItem(0);
         }
     }
 
@@ -663,6 +664,9 @@ public class SliderLayout extends RelativeLayout{
         }
         int p = mViewPager.getCurrentItem() % getRealAdapter().getCount();
         int n = (position - p) + mViewPager.getCurrentItem();
+        if(position == 0){
+            n = 0;
+        }
         mViewPager.setCurrentItem(n, smooth);
     }
 
