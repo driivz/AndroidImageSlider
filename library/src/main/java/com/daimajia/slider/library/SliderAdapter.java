@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A slider adapter
@@ -25,6 +26,13 @@ public class SliderAdapter extends PagerAdapter implements BaseSliderView.ImageL
     public <T extends BaseSliderView> void addSlider(T slider){
         slider.setOnImageLoadListener(this);
         mImageContents.add(slider);
+        notifyDataSetChanged();
+    }
+    public <T extends BaseSliderView> void addSliders(List<T> sliders){
+        for(BaseSliderView slider : sliders) {
+            slider.setOnImageLoadListener(this);
+            mImageContents.add(slider);
+        }
         notifyDataSetChanged();
     }
 

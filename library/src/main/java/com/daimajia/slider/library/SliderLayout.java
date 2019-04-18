@@ -40,6 +40,8 @@ import java.lang.reflect.Field;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import java.util.List;
+
 /**
  * SliderLayout is compound layout. This is combined with {@link com.daimajia.slider.library.Indicators.PagerIndicator}
  * and {@link com.daimajia.slider.library.Tricks.ViewPagerEx} .
@@ -235,6 +237,9 @@ public class SliderLayout extends RelativeLayout{
 
     public <T extends BaseSliderView> void addSlider(T imageContent){
         mSliderAdapter.addSlider(imageContent);
+    }
+    public <T extends BaseSliderView> void addSliders(List<T> imageContents){
+        mSliderAdapter.addSliders(imageContents);
     }
 
     private android.os.Handler mh = new android.os.Handler(){
