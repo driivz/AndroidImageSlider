@@ -598,7 +598,7 @@ public class SliderLayout extends RelativeLayout{
         }
     }
 
-    private SliderAdapter getRealAdapter(){
+    public SliderAdapter getRealAdapter(){
         PagerAdapter adapter = mViewPager.getAdapter();
         if(adapter!=null){
             return ((InfinitePagerAdapter)adapter).getRealAdapter();
@@ -615,7 +615,7 @@ public class SliderLayout extends RelativeLayout{
         if(getRealAdapter() == null)
             throw new IllegalStateException("You did not set a slider adapter");
 
-        return mViewPager.getCurrentItem() % getRealAdapter().getCount();
+        return getRealAdapter().getCount() > 0 ? mViewPager.getCurrentItem() % getRealAdapter().getCount() : 0;
 
     }
 
